@@ -1,0 +1,56 @@
+﻿@model IEnumerable<_1811063617_TranQuangHuy.Models.Book>
+
+@{
+    ViewBag.Title = "Book List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh Sách Book</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table cellpadding="10" border="1">
+    <tr>
+        <th>
+           Title
+        </th>
+        <th>
+           Author
+        </th>
+        <th>
+           Image Cover
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+
+           
+            <img src="@item.Image_cover" width="95" title="cover" />
+        </td>
+        <td>
+          
+            <a href="/Book/EditBook/@item.Id" title="Edit book"> Edit </a>
+
+        </td>
+        <td>
+            <a href="/Book/DeleteBook/@item.Id" title="Delete Book"> Delete </a>
+        </td>
+    </tr>
+}
+
+</table>
